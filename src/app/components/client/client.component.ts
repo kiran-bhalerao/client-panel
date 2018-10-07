@@ -9,9 +9,9 @@ import { ClientService } from '../../service/client.service';
 })
 export class ClientComponent implements OnInit {
   totalBalance: number;
-  clients: any[];
-  isAuthen:boolean = false;
-  constructor(private clientService: ClientService,private authenticationService:AuthenticationService) { }
+  clients: any[] = [];
+  isAuthen: boolean = false;
+  constructor(private clientService: ClientService, private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
     this.authenticationService.getAuth()

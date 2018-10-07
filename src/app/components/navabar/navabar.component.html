@@ -7,22 +7,25 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="/">Home</a>
+        <a class="nav-link" href="#" routerLink="/">Dashboard</a>
+      </li>
+      <li *ngIf="isAuthen" class="nav-item">
+        <a class="nav-link" href="#" routerLink="/setting">Setting</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-      <li *ngIf="!isAuthen" class="nav-item">
+      <li *ngIf="!isAuthen && showRegister" class="nav-item">
         <a class="nav-link" href="#" routerLink="/register">Register</a>
       </li>
       <li *ngIf="isAuthen" class="nav-item">
         <button class="nav-link btn btn-light" disabled href="#">{{user}}</button>
       </li>
-      <li *ngIf="isAuthen;else notAuthen" class="nav-item">
-        <a (click)="logOut()" class="nav-link" href="#">Logout</a>
+      <li *ngIf="isAuthen" class="nav-item">
+        <button href="#" (click)="logOut()" class="nav-link btn text-muted">Logout</button>
       </li>
-      <ng-template #notAuthen>
+      <li *ngIf="!isAuthen" class="nav-item">
         <a class="nav-link" href="#" routerLink="/login">Login</a>
-      </ng-template>
+      </li>
     </ul>
   </div>
 </nav> <br>

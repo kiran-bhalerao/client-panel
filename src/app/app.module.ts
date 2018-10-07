@@ -25,11 +25,14 @@ import { ClientService } from './service/client.service';
 import { AuthGuard } from './gaurds/auth.gaurd';
 import { RegGuard } from './gaurds/reg.gaurd';
 import { FooterComponent } from './components/footer/footer.component';
+import { SettingComponent } from './components/setting/setting.component';
+import { SettingService } from './service/setting.service';
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [RegGuard] },
   { path: 'login', component: LoginComponent },
+  { path: 'setting', component: SettingComponent, canActivate: [AuthGuard] },
   { path: 'add-client', component: AddClientComponent, canActivate: [AuthGuard] },
   { path: 'client/:id', component: ClientDetailsComponent, canActivate: [AuthGuard] },
   { path: 'edit/:id', component: EditClientComponent, canActivate: [AuthGuard] },
@@ -62,7 +65,8 @@ export const environment = {
     LoginComponent,
     RegisterComponent,
     PageNotFoundComponent,
-    FooterComponent
+    FooterComponent,
+    SettingComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +78,7 @@ export const environment = {
     AngularFireStorageModule // imports firebase/storage only needed for storage features
 
   ],
-  providers: [ClientService, AuthenticationService, AuthGuard, RegGuard],
+  providers: [ClientService, AuthenticationService, SettingService, AuthGuard, RegGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

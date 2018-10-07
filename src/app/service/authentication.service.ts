@@ -6,11 +6,11 @@ import { AngularFireAuth } from "@angular/fire/auth";
 })
 export class AuthenticationService {
 
-  constructor(private auth: AngularFireAuth) { 
+  constructor(private auth: AngularFireAuth) {
   }
 
-  register(email,password){
-    return this.auth.auth.createUserWithEmailAndPassword(email,password);
+  register(email, password) {
+    return this.auth.auth.createUserWithEmailAndPassword(email, password);
   }
   login(email, password) {
     return this.auth.auth.signInWithEmailAndPassword(email, password);
@@ -18,7 +18,10 @@ export class AuthenticationService {
   logout() {
     return this.auth.auth.signOut();
   }
-  getAuth(){
+  getAuth() {
     return this.auth.user;
+  }
+  getFireAuth(){
+    return this.auth;
   }
 }
