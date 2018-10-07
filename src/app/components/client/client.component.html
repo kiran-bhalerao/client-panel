@@ -7,7 +7,7 @@
   </div>
 </div>
 
-<div *ngIf="clients && isAuthen;else noClient">
+<div *ngIf="clients[0] && isAuthen;else noClient">
   <table class="table table-striped">
     <thead class="thead-dark">
       <tr>

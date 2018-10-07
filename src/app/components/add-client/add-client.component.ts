@@ -16,7 +16,6 @@ export class AddClientComponent implements OnInit {
   }
 
   onSubmit(f){
-    console.log(f.value);
     this.clientService.addClient(f.value);
     this.router.navigate(['/']);
   }

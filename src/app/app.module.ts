@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule,Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -13,7 +13,6 @@ import { NavabarComponent } from './components/navabar/navabar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { SettingsComponent } from './components/settings/settings.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 import { AngularFireModule } from '@angular/fire';
@@ -25,14 +24,17 @@ import { AuthenticationService } from './service/authentication.service';
 import { ClientService } from './service/client.service';
 import { AuthGuard } from './gaurds/auth.gaurd';
 import { RegGuard } from './gaurds/reg.gaurd';
+import { FooterComponent } from './components/footer/footer.component';
 
-const appRoutes : Routes = [
-  {path:'',component:DashboardComponent},
-  {path:'register',component:RegisterComponent,canActivate:[RegGuard]},
-  {path:'login',component:LoginComponent},
-  {path:'add-client',component:AddClientComponent,canActivate:[AuthGuard]},
-  {path:'client/:id',component:ClientDetailsComponent,canActivate:[AuthGuard]},
-  {path:'edit/:id',component:EditClientComponent,canActivate:[AuthGuard]},
+const appRoutes: Routes = [
+  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent, canActivate: [RegGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: 'add-client', component: AddClientComponent, canActivate: [AuthGuard] },
+  { path: 'client/:id', component: ClientDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'edit/:id', component: EditClientComponent, canActivate: [AuthGuard] },
+  { path: '404', component: PageNotFoundComponent },
+  { path: '**', component: PageNotFoundComponent }
 ]
 
 export const environment = {
@@ -59,8 +61,8 @@ export const environment = {
     SidebarComponent,
     LoginComponent,
     RegisterComponent,
-    SettingsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,7 @@ export const environment = {
     AngularFireStorageModule // imports firebase/storage only needed for storage features
 
   ],
-  providers: [ClientService,AuthenticationService,AuthGuard,RegGuard],
+  providers: [ClientService, AuthenticationService, AuthGuard, RegGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

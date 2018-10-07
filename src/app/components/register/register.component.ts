@@ -22,15 +22,16 @@ export class RegisterComponent implements OnInit {
   }
   onSubmit(f) {
     this.submitText = 'Wait ...';
+    
     if (f.value.password != f.value.confirmPassword) {
       this.submitText = 'Failed ...';
       this.isClear = true;
       this.errMessage = "Password and confirm password must be same !";
       return true;
     }
+
     this.authenticationService.register(f.value.email, f.value.password)
       .then((user) => {
-        console.log('register',user);
         this.errMessage = null;
         this.router.navigate(['/login']);
       })

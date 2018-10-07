@@ -20,7 +20,6 @@ export class ClientComponent implements OnInit {
       });
 
     this.clientService.getclientsObs().subscribe((clients) => {
-      console.log(clients);
       this.clients = clients;
       this.totalBalance = this.getTotalBalance()
     });

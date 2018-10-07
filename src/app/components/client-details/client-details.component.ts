@@ -22,15 +22,12 @@ export class ClientDetailsComponent implements OnInit {
   }
 
   onDelete(id) {
-    // console.log(id);
-    this.clientService.deleteClient(id);
+    if(confirm("Are you sure to delete ?")){
+      this.clientService.deleteClient(id);
     this.router.navigate(['/']);
-  }
-  onEdit(id) {
-    console.log('edit');
+    }
   }
   updateBalnce(id) {
-    // console.log(id);
     this.clientService.updateClient(id, this.client);
     this.showUpdateBalance = !this.showUpdateBalance;
   }
