@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Client panel</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/">Home</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li *ngIf="!isAuthen" class="nav-item">
+        <a class="nav-link" href="#" routerLink="/register">Register</a>
+      </li>
+      <li *ngIf="isAuthen" class="nav-item">
+        <button class="nav-link btn btn-light" disabled href="#">{{user}}</button>
+      </li>
+      <li *ngIf="isAuthen;else notAuthen" class="nav-item">
+        <a (click)="logOut()" class="nav-link" href="#">Logout</a>
+      </li>
+      <ng-template #notAuthen>
+        <a class="nav-link" href="#" routerLink="/login">Login</a>
+      </ng-template>
+    </ul>
+  </div>
+</nav> <br>
