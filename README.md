@@ -4,8 +4,9 @@ ClienrPanel is client managment system was generated with [Angular CLI](https://
 
 [https://clientpanel.tk](https://clientpanel.tk)
 + credentials 
-⋅⋅⋅username: bhaleraok65@gmail.com
-⋅⋅⋅password: kiran123
+  - username: bhaleraok65@gmail.com
+  - password: kiran123
+
 
 ## Development server
 ```
